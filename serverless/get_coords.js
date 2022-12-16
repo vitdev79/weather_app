@@ -6,7 +6,7 @@ const { WEATHER_API_KEY } = process.env;
 export async function handler(event, context) {
     const params = JSON.parse(event.body);
     const { text, units } = params;
-    const regex = /^d+$/g;
+    const regex = /^\d+$/g;
     const flag  = regex.test(text) ? "zip" : "q";
     const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${entryText}&units=${units}&APPID=${WEATHER_API_KEY}`;
     const encodedUrl = encodeURI(url);
