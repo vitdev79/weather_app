@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
     const { text, units } = params;
     const regex = /^\d+$/g;
     const flag  = regex.test(text) ? "zip" : "q";
-    const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${entryText}&units=${units}&APPID=${WEATHER_API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${text}&units=${units}&APPID=${WEATHER_API_KEY}`;
     const encodedUrl = encodeURI(url);
     try {
         const dataStream = await fetch(encodedUrl);
